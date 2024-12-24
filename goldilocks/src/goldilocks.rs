@@ -125,6 +125,15 @@ impl FieldAlgebra for Goldilocks {
         Self::new(n)
     }
 
+    fn try_as_canonical_u64(&self) -> Option<u64> {
+        let mut c = self.value;
+        // We only need one condition subtraction, since 2 * ORDER would not fit in a u64.
+        if c >= Self::ORDER_U64 {
+            c -= Self::ORDER_U64;
+        }
+        Some(c)
+    }
+
     fn from_canonical_usize(n: usize) -> Self {
         Self::new(n as u64)
     }

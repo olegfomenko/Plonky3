@@ -119,6 +119,11 @@ pub trait FieldAlgebra:
     /// behavior is undefined.
     fn from_canonical_u64(n: u64) -> Self;
 
+    /// Return the representative of `value` that is less than `ORDER_U64`.
+    fn try_as_canonical_u64(&self) -> Option<u64> {
+        None
+    }
+
     /// Convert from a canonical `usize`.
     ///
     /// If the input is not canonical, i.e. if it exceeds the field's characteristic, then the
