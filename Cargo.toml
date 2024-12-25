@@ -33,6 +33,7 @@ members = [
     "symmetric",
     "util",
     "uni-stark",
+    "fibo-air"
 ]
 
 [workspace.dependencies]
